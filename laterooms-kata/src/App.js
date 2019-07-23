@@ -9,37 +9,37 @@ import './App.css';
 
 function App() {
 
-  const [data, newData] = useState([]);
+  const [data, setData] = useState([]);
   const [filter, onSelectFilter] = useState('');
 
   useEffect(() => {
     const getData = async () => {
       const results = await hotelData();
       const filters = await hotelFilters();
-      newData({ results, filters });
+      setData({ results, filters });
     };
     getData();
   }, []);
 
-  const filterFacility = async (event) => {
+  const filterFacility = async event => {
     event.persist();
     onSelectFilter(event.target.value);
     const results = await hotelData();
-    const newResults = results.filter(result => result.facilities.indexOf(event.target.value) !== -1);
-    newData({ filters: data.filters, results: newResults });
+    const newResults = results.filter(d => d.facilities.indexOf(event.target.value) !== -1);
+    setData({ filters: data.filters, results: newResults });
   };
 
   const clearFilter = async () => {
     onSelectFilter('');
     const results = await hotelData();
-    newData({ filters: data.filters, results });
+    setData({ filters: data.filters, results });
   };
 
   return (
     <div className="App">
       <FilterSelect
         facilities={data.filters}
-        filter={filterFacility}
+        filters={filterFacility}
         selectedFilter={filter}
         clearFilter={clearFilter}
        />

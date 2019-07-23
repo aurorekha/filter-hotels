@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 const FilterSelect = ({ facilities, filters, selectedFacility, clearFilter }) => {
   return(
     <div>
-      <select>
+      <select
+        onChange={e => filters(e)}>
       <option>Select a facility</option>
       {!facilities.length ? 'No facilities available' :
       facilities.map((facility) => (
@@ -23,7 +24,7 @@ FilterSelect.defaultProps = {
 
 FilterSelect.propTypes = {
   facilities: PropTypes.arrayOf(PropTypes.string),
-  filter: PropTypes.func.isRequired,
+  filters: PropTypes.func.isRequired,
   clearFilter: PropTypes.func.isRequired,
   selectedFacility: PropTypes.string,
 }
