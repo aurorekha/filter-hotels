@@ -5,14 +5,16 @@ const FilterSelect = ({ facilities, filters, selectedFacility, clearFilter }) =>
   return(
     <div>
       <select
-        onChange={e => filters(e)}>
-      <option>Select a facility</option>
+        onChange={e => filters(e)}
+        value={selectedFacility}
+        >
       {!facilities.length ? 'No facilities available' :
       facilities.map((facility) => (
           <option key={facility}>{(facility)}</option>
       ))}
       </select>
-      <button onClick={() => clearFilter()}>Clear</button>
+      <button onClick={() => clearFilter()}
+        disabled={selectedFacility === ''}>Clear</button>
     </div>
   )
 }

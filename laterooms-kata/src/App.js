@@ -40,7 +40,7 @@ function App() {
       <FilterSelect
         facilities={data.filters}
         filters={filterFacility}
-        selectedFilter={filter}
+        selectedFacility={filter}
         clearFilter={clearFilter}
        />
       <Results results={data.results} />
