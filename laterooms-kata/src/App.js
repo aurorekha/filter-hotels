@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { hotelData, hotelFilters } from './data.js';
+import { Container } from 'react-bootstrap';
 
 import Results from './components/Results.js';
 import FilterSelect from './components/FilterSelect.js';
@@ -35,7 +36,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <Container className="App">
       <FilterSelect
         facilities={data.filters}
         filters={filterFacility}
@@ -43,7 +44,7 @@ function App() {
         clearFilter={clearFilter}
        />
       <Results results={data.results} />
-    </div>
+    </Container>
   );
 }
 

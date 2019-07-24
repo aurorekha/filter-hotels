@@ -26,4 +26,4 @@ export const hotelData = async () => [
   },
 ];
 
-export const hotelFilters = async () => ['', 'car park', 'gym', 'pool'];
+export const hotelFilters = async () => ['car park', 'gym', 'pool'];
