@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import { hotelData, hotelFilters } from './data.js';
 
 import Results from './components/Results.js';
@@ -10,7 +9,7 @@ import './App.css';
 function App() {
 
   const [data, setData] = useState([]);
-  const [filter, onSelectFilter] = useState('');
+  const [filter, setFilter] = useState('');
 
   useEffect(() => {
     const getData = async () => {
@@ -23,14 +22,14 @@ function App() {
 
   const filterFacility = async event => {
     event.persist();
-    onSelectFilter(event.target.value);
+    setFilter(event.target.value);
     const results = await hotelData();
-    const newResults = results.filter(d => d.facilities.indexOf(event.target.value) !== -1);
+    const newResults = results.filter(result => result.facilities.indexOf(event.target.value) !== -1);
     setData({ filters: data.filters, results: newResults });
   };
 
   const clearFilter = async () => {
-    onSelectFilter('');
+    setFilter('');
     const results = await hotelData();
     setData({ filters: data.filters, results });
   };
