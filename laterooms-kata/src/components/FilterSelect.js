@@ -7,10 +7,10 @@ import '../styles/filterSelect.scss';
 const FilterSelect = ({ facilities, filters, selectedFacility, clearFilter }) => {
   return(
     <Form.Group as={Form.Row} className="mb-0 filterSelect">
-      <Form.Label column sm={2} className="text-center">
-        <h4>Filter Facilities</h4>
+      <Form.Label column md={2} xs={3}className="text-center">
+        <h5>Filter Facilities</h5>
       </Form.Label>
-      <Col sm={9}>
+      <Col md={9} xs={6}>
         <Form.Control
           as="select"
           onChange={e => filters(e)}
@@ -26,7 +26,7 @@ const FilterSelect = ({ facilities, filters, selectedFacility, clearFilter }) =>
           ))}
         </Form.Control>
       </Col>
-      <Col className="text-center" sm={1}>
+      <Col className="text-center" md={1} xs={3}>
         <Button
           variant="primary"
           onClick={() => clearFilter()}

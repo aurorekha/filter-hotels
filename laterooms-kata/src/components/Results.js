@@ -9,7 +9,7 @@ const Results = ({ results }) => {
     <div>
       {results.map((result, index) => (
         <Container key={index}>
-          <ul className="hotelList">
+          <ul className="hotelList" >
             <li>
               <h2>{result.name}</h2>
             </li>

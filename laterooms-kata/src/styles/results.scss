@@ -1,7 +1,16 @@
 .hotelList {
   float: left;
-  width: 20%;
   padding-top: 2rem;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    width: 44%;
+  }
+
+  @media screen and (min-width: 1240px) {
+    width: 20%;
+  }
+
   li {
     list-style: none;
   }
